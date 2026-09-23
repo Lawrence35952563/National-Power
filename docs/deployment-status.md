@@ -1,12 +1,27 @@
 # 发布状态
 
-2026-09-23：正在通过已授权的 GitHub 官方 CLI 提交及部署现有工程。
+**2026-09-23：已上线并实际验证。** 网站：[https://lawrence35952563.github.io/National-Power/](https://lawrence35952563.github.io/National-Power/)。
 
-- 远端初始 main：`fa6a0aee2d5bf3bee3a21a2ff9177f165fd10912`，仅有空白 README；保留历史，不强推。
-- Pages API 已确认 Source 为 GitHub Actions（`build_type: workflow`）；未更改 Pages 设置。
-- GitHub 插件 create_blob 实测仍返回 `403 Resource not accessible by integration`。官方 CLI 设备授权已成功，登录账号为 Lawrence35952563。
-- 修复 Windows UTF-8 读写问题；构建与 34 项本地测试通过。Excel SHA-256 仍为 `330dc73f643c117e05dfcd3f0ec8c419e2ea251025c2bbd2d7223e81a25b832a`。
-- 本地浏览器现可访问，已执行主要桌面和手机检查；最终详细记录将在实际部署验收后更新。
-- 提交前目标 Pages URL 返回 HTTP 404；尚不宣布上线。
+## 可追溯发布证据
 
-目标地址：https://lawrence35952563.github.io/National-Power/
+- 远端原始 `main` 为 `fa6a0aee2d5bf3bee3a21a2ff9177f165fd10912`，仅含空白 README。已经审阅并保留为首次发布提交的父提交。
+- [首次工程提交 `92fb97b`](https://github.com/Lawrence35952563/National-Power/commit/92fb97bfc04bce3b6a800de013ddcc4da3247cf4)；通过 GitHub 官方 CLI 的认证调用 GitHub Git data API，以 `force: false` 更新 `main`。提交前后均检查了远端分支，未覆盖别人修改。
+- [Actions 35825621835](https://github.com/Lawrence35952563/National-Power/actions/runs/35825621835)：build 和 deploy 均成功；日志显示 `Ran 34 tests`、`OK`，全部 1,891 个公式缓存已检查，10 个既有错误保留为警告。
+- Pages 部署步骤于 2026-09-23 06:13:39 UTC 成功结束。随后实际 HTTP 检查及真实浏览器打开成功，不以工作流成功代替网站验收。
+- Pages API 确认 `build_type: workflow`；保留用户既有 GitHub Actions Source 设置。分支当时未受保护，rulesets 为空；没有修改任何保护或审批规则。
+- 工作流位于根目录 `.github/workflows/pages.yml`。提交的是源码；`dist/` 保持忽略，由工作流重新构建部署。
+
+## 验证结果
+
+- 本地 Windows 构建和 34 项测试通过；修复了实际复现的默认 GBK 读取 UTF-8 配置失败。
+- 线上 18 个资源/数据/下载请求全部 HTTP 200。Excel 指纹完全匹配交接原件；全部 CSV 与本地生成结果逐字节一致。
+- 桌面 1440×960，手机 390×844 / 360×800 的 Chromium 实际检查已执行。子路径资源、hash 路由、实体与比较分享刷新、下载均通过。
+- 详细通过范围和未测项目：[浏览器与线上验收](qa/browser-release-2026-09-23.md)。
+
+## 权限路径历史
+
+本轮重新实测 GitHub 插件 `create_blob` 仍为 `403 Resource not accessible by integration`；账号 `push/admin` 标记并不表示插件具有实际写入权限。初始本地 Git 运行时缺失 HTTPS helper，GitHub CLI 无登录，内置浏览器也未登录。用户完成官方 CLI 设备授权后，正常认证的 GitHub API 成功发布，无需重新设置 Pages，无需提供聊天密码或令牌。旧权限错误已不再阻止本次发布。
+
+## 后续更新
+
+只替换 `data/source/national-power.xlsx`，先在 Excel 重算并保存，再提交 `main`。现有工作流按检查、构建、测试、部署顺序运行，研究结构变更或新增校验错误会阻断发布。公式、作者排名和评分仍由作者维护，网站不擅自重排。

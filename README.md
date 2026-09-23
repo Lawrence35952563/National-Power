@@ -4,9 +4,9 @@
 
 **平时只需要维护一个 Excel，不需要修改网页。** 其余文件负责把 Excel 自动变成网站，正常更新数据时不用动。
 
-**2026-09-23 发布验收进行中。** 已接管交接工程，修复 Windows UTF-8 兼容问题，34 项测试通过，并完成主要桌面与手机浏览器检查。插件写入仍返回 403；经用户完成 GitHub 官方 CLI 授权，现使用正常认证提交。最终部署结果见[发布状态](docs/deployment-status.md)。
+**已于 2026-09-23 上线并完成实际验证。** [访问网站](https://lawrence35952563.github.io/National-Power/) · [首次成功部署](https://github.com/Lawrence35952563/National-Power/actions/runs/35825621835)。Windows 本地及 GitHub Actions 均通过 34 项测试；已用真实 Chromium 浏览器检查桌面和手机尺寸页面、路由、交互及下载。详细范围与未测项目见[浏览器和线上验收](docs/qa/browser-release-2026-09-23.md)。
 
-- 网站地址（部署成功后可访问）：[国家长期能力综合排名](https://lawrence35952563.github.io/National-Power/)
+- 网站地址（已验证）：[国家长期能力综合排名](https://lawrence35952563.github.io/National-Power/)
 - 第一次使用：[使用说明](docs/user-guide.md)
 - 本次完成内容与发布状态：[交付说明](DELIVERY.md)
 
