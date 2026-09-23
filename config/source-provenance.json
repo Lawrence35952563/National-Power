@@ -1,0 +1,8 @@
+{
+  "originalSha256": "6df2efac451028f5ed32f9ef3ee2373f75920dae9e917e1a23db9728ae54aa42",
+  "publicSourceSha256": "330dc73f643c117e05dfcd3f0ec8c419e2ea251025c2bbd2d7223e81a25b832a",
+  "sourceVersion": "2.0",
+  "policy": "Removed document creator, last editor and printer metadata; cell values, formulae and caches are unchanged.",
+  "verification": "All parsed workbook contents compared equal before and after metadata-only cleanup. Worksheets are otherwise byte-preserved.",
+  "scope": "Initial 2.0 attachment import only; current source hash is computed at build time in dataset.meta.sourceSha256."
+}

@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 1,
+  "title": "国家长期能力综合排名",
+  "version": "2.0",
+  "summarySheet": "summary",
+  "referenceColumn": "O",
+  "rankColumn": "B",
+  "englishColumn": "D",
+  "categoryColumn": "A",
+  "sheets": [
+    {
+      "name": "综排",
+      "id": "summary",
+      "entityColumn": "C",
+      "role": "summary",
+      "headers": {
+        "A": "分类",
+        "B": "排名",
+        "C": "国家",
+        "D": null,
+        "E": "政治",
+        "F": "经济",
+        "G": "军事",
+        "H": "交通",
+        "I": "农业",
+        "J": "能源",
+        "K": "矿产",
+        "L": "稳定",
+        "M": null,
+        "N": null,
+        "O": null
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "classification"
+        },
+        "B": {
+          "role": "rank"
+        },
+        "C": {
+          "role": "identity"
+        },
+        "D": {
+          "name": "英文名称（原表未命名列）",
+          "role": "identity"
+        },
+        "E": {
+          "role": "domain"
+        },
+        "F": {
+          "role": "domain"
+        },
+        "G": {
+          "role": "domain"
+        },
+        "H": {
+          "role": "domain"
+        },
+        "I": {
+          "role": "domain"
+        },
+        "J": {
+          "role": "domain"
+        },
+        "K": {
+          "role": "domain"
+        },
+        "L": {
+          "role": "domain"
+        },
+        "M": {
+          "name": "五项分级合计（原表未命名列）",
+          "role": "auxiliary"
+        },
+        "N": {
+          "name": "三项名次合计（原表未命名列）",
+          "role": "auxiliary"
+        },
+        "O": {
+          "name": "公式参考值（非百分制）",
+          "role": "reference",
+          "note": "原表无标题；缓存值可能大于100。不得用此值替换作者既定排名。"
+        }
+      }
+    },
+    {
+      "name": "矿产",
+      "id": "minerals",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "得分",
+        "B": "国家",
+        "C": "铁",
+        "D": "铜",
+        "E": "铝",
+        "F": "铬",
+        "G": "锰",
+        "H": "镍",
+        "I": "钛",
+        "J": "铅",
+        "K": "锂",
+        "L": "土",
+        "M": "锌",
+        "N": "金",
+        "O": "银",
+        "P": "铀",
+        "Q": "磷",
+        "R": "钾",
+        "S": "石",
+        "T": "钴",
+        "U": "钼",
+        "V": "铌",
+        "W": "钽",
+        "X": "钨",
+        "Y": "钒",
+        "Z": "铝",
+        "AA": "锑",
+        "AB": "砷",
+        "AC": "铍",
+        "AD": "铋",
+        "AE": "镉",
+        "AF": "镓",
+        "AG": "锗",
+        "AH": "铟",
+        "AI": "汞",
+        "AJ": "铼",
+        "AK": "硒",
+        "AL": "碲",
+        "AM": "锡",
+        "AN": "钯",
+        "AO": "铂",
+        "AP": "铑",
+        "AQ": "石棉",
+        "AR": "重晶石",
+        "AS": "膨润土",
+        "AT": "硼矿",
+        "AU": "钻石",
+        "AV": "金刚石",
+        "AW": "硅藻土",
+        "AX": "长石",
+        "AY": "萤石",
+        "AZ": "石墨",
+        "BA": "高岭土",
+        "BB": "菱镁矿",
+        "BC": "珍珠岩",
+        "BD": "盐",
+        "BE": "硫",
+        "BF": "滑石、皂石与叶蜡石",
+        "BG": "蛭石",
+        "BH": "锆石",
+        "BI": "动力煤",
+        "BJ": "炼焦煤",
+        "BK": "褐煤",
+        "BL": "天然气",
+        "BM": "石油",
+        "BN": "油砂",
+        "BO": "页岩油"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "score"
+        },
+        "B": {
+          "role": "identity"
+        }
+      }
+    },
+    {
+      "name": "能源",
+      "id": "energy",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "得分",
+        "B": "国家",
+        "C": null,
+        "D": "其他占比",
+        "E": "可再生能源",
+        "F": "核能发电",
+        "G": "石油自给率",
+        "H": "可持续年份",
+        "I": "石油排名",
+        "J": "石油综合",
+        "K": "煤炭排名",
+        "L": "煤炭综合",
+        "M": "天然气自给率",
+        "N": "天然气储采年限",
+        "O": "天然气排名",
+        "P": "天然气综合",
+        "Q": "天然气产量",
+        "R": "天然气储量",
+        "S": "天然气消耗",
+        "T": "煤炭产量",
+        "U": "煤炭储量",
+        "V": "煤炭消耗",
+        "W": "石油产量",
+        "X": "石油储量",
+        "Y": "石油消耗"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "score"
+        },
+        "B": {
+          "role": "identity"
+        },
+        "C": {
+          "name": "未命名辅助字段（C列）",
+          "role": "auxiliary"
+        }
+      }
+    },
+    {
+      "name": "农业",
+      "id": "agriculture",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "得分",
+        "B": "国家",
+        "C": "耕地面积",
+        "D": "最大人均产量",
+        "E": "谷物产量吨",
+        "F": "年人均谷物",
+        "G": "公顷产量",
+        "H": "肉类折粮",
+        "I": "肉类产量",
+        "J": "人均衣物",
+        "K": "纤维作物产量",
+        "L": "人均木材",
+        "M": "林地面积",
+        "N": "每日热量",
+        "O": "缺水",
+        "P": "人均水资源",
+        "Q": "境内水",
+        "R": "流入水",
+        "S": "循环水",
+        "T": "内部水域率",
+        "U": "年用水量",
+        "V": "水源自给率",
+        "W": "海水淡化总量",
+        "X": "海水补充",
+        "Y": "人口"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "score"
+        },
+        "B": {
+          "role": "identity"
+        }
+      }
+    },
+    {
+      "name": "交通",
+      "id": "transport",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "得分",
+        "B": "国家",
+        "C": "物流",
+        "D": "网络分数",
+        "E": "网络排名",
+        "F": "道路长度",
+        "G": "道密度",
+        "H": "道路排名",
+        "I": "铁路里程",
+        "J": "铁路密度",
+        "K": "铁路排名",
+        "L": "机场数量",
+        "M": "机场密度",
+        "N": "航空排名",
+        "O": "汽车数量",
+        "P": "人均汽车",
+        "Q": "车辆排名",
+        "R": "内河航道",
+        "S": "水运排名",
+        "T": "通航比",
+        "U": "人口",
+        "V": "国土面积",
+        "W": null
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "score"
+        },
+        "B": {
+          "role": "identity"
+        },
+        "W": {
+          "name": "未命名辅助字段（W列）",
+          "role": "auxiliary"
+        }
+      }
+    },
+    {
+      "name": "稳定",
+      "id": "stability",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "得分",
+        "B": "国家",
+        "C": null,
+        "D": "城市化率",
+        "E": null,
+        "F": "政变暴乱",
+        "G": null,
+        "H": "长期通胀",
+        "I": "未来人口",
+        "J": null,
+        "K": "人口增长",
+        "L": "劳动力",
+        "M": null,
+        "N": "劳动人口占比",
+        "O": "人口",
+        "P": "天时",
+        "Q": "地利",
+        "R": "人和"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "score"
+        },
+        "B": {
+          "role": "identity"
+        },
+        "C": {
+          "name": "未命名辅助字段（C列）",
+          "role": "auxiliary"
+        },
+        "E": {
+          "name": "未命名辅助字段（E列）",
+          "role": "auxiliary"
+        },
+        "G": {
+          "name": "未命名辅助字段（G列）",
+          "role": "auxiliary"
+        },
+        "J": {
+          "name": "未命名辅助字段（J列）",
+          "role": "auxiliary"
+        },
+        "M": {
+          "name": "未命名辅助字段（M列）",
+          "role": "auxiliary"
+        }
+      }
+    },
+    {
+      "name": "政治排名",
+      "id": "politics",
+      "entityColumn": "D",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "排名",
+        "B": "评分",
+        "C": "权重",
+        "D": "国家",
+        "E": null,
+        "F": "人类发展指数",
+        "G": null,
+        "H": "科研投入",
+        "I": "IMF投票",
+        "J": "大使馆",
+        "K": null,
+        "L": "工业竞争力",
+        "M": "跨国公司",
+        "N": "外汇储备和主权基金"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "rank"
+        },
+        "D": {
+          "role": "identity"
+        },
+        "E": {
+          "name": "未命名辅助字段（E列）",
+          "role": "auxiliary"
+        },
+        "G": {
+          "name": "未命名辅助字段（G列）",
+          "role": "auxiliary"
+        },
+        "K": {
+          "name": "未命名辅助字段（K列）",
+          "role": "auxiliary"
+        }
+      }
+    },
+    {
+      "name": "经济排名",
+      "id": "economy",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "排名",
+        "B": "国家",
+        "C": null,
+        "D": "购买力排名",
+        "E": "GDP购买力平价十亿美元",
+        "F": "GDP排名",
+        "G": "GDP十亿美元",
+        "H": "国内资产排名",
+        "I": "国内资产",
+        "J": "国民财富排名",
+        "K": "国民财富",
+        "L": "资本存量排名",
+        "M": "资本存量",
+        "N": "用电排名",
+        "O": "用电量",
+        "P": "增长排名",
+        "Q": "经济增长",
+        "R": "十年增长",
+        "S": "就业排名",
+        "T": "就业人口百万",
+        "U": "人口排名",
+        "V": "人口",
+        "W": "domestic wealth2020",
+        "X": 2024,
+        "Y": 2023,
+        "Z": 2022,
+        "AA": 2021,
+        "AB": 2020,
+        "AC": 2019,
+        "AD": 2018,
+        "AE": 2017,
+        "AF": 2016,
+        "AG": 2015,
+        "AH": "ppp2023",
+        "AI": "ppp2024",
+        "AJ": "ppp2025",
+        "AK": "gdp2023",
+        "AL": "gdp2024",
+        "AM": "gdp2025"
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "rank"
+        },
+        "B": {
+          "role": "identity"
+        },
+        "C": {
+          "name": "未命名辅助字段（C列）",
+          "role": "auxiliary"
+        }
+      }
+    },
+    {
+      "name": "军事排名",
+      "id": "military",
+      "entityColumn": "B",
+      "role": "mixed-data-and-calculation",
+      "headers": {
+        "A": "排名",
+        "B": "国家",
+        "C": "海军",
+        "D": "空军",
+        "E": "陆军",
+        "F": "动员",
+        "G": "核弹头.战略潜艇",
+        "H": "军费开支亿美元",
+        "I": "兵力",
+        "J": "航空母舰.舰载机",
+        "K": "海军吨位",
+        "L": "导弹垂发单元",
+        "M": "潜艇.核潜艇",
+        "N": "防空反导",
+        "O": "军用卫星.民用",
+        "P": "军机.运输机",
+        "Q": "坦克",
+        "R": "火炮",
+        "S": "实战",
+        "T": "北约",
+        "U": "舰艇数量",
+        "V": "单兵投入",
+        "W": "GDP购买力平价万亿",
+        "X": "人口百万",
+        "Y": "面积平方公里",
+        "Z": null
+      },
+      "fieldOverrides": {
+        "A": {
+          "role": "rank"
+        },
+        "B": {
+          "role": "identity"
+        },
+        "G": {
+          "type": "composite",
+          "note": "带点复合编码，不是可加减比较的小数。原码保留，分项仅按点前与点后记录展示；不补未记录值及数值存储丢失的尾零，整体不推算名次或绘图。",
+          "compositeParts": [
+            {
+              "id": "primary",
+              "label": "核弹头",
+              "unit": null
+            },
+            {
+              "id": "secondary",
+              "label": "战略导弹核潜艇",
+              "unit": null
+            }
+          ]
+        },
+        "J": {
+          "type": "composite",
+          "note": "带点复合编码，不是可加减比较的小数。原码保留，分项仅按点前与点后记录展示；不补未记录值及数值存储丢失的尾零，整体不推算名次或绘图。",
+          "compositeParts": [
+            {
+              "id": "primary",
+              "label": "航空母舰（原表口径）",
+              "unit": null
+            },
+            {
+              "id": "secondary",
+              "label": "舰载机",
+              "unit": null
+            }
+          ]
+        },
+        "M": {
+          "type": "composite",
+          "note": "带点复合编码，不是可加减比较的小数。原码保留，分项仅按点前与点后记录展示；不补未记录值及数值存储丢失的尾零，整体不推算名次或绘图。",
+          "compositeParts": [
+            {
+              "id": "primary",
+              "label": "潜艇（PDF称攻击潜艇）",
+              "unit": null
+            },
+            {
+              "id": "secondary",
+              "label": "核动力潜艇",
+              "unit": null
+            }
+          ]
+        },
+        "O": {
+          "type": "composite",
+          "note": "带点复合编码，不是可加减比较的小数。原码保留，分项仅按点前与点后记录展示；不补未记录值及数值存储丢失的尾零，整体不推算名次或绘图。",
+          "compositeParts": [
+            {
+              "id": "primary",
+              "label": "军用卫星",
+              "unit": null
+            },
+            {
+              "id": "secondary",
+              "label": "民用卫星",
+              "unit": null
+            }
+          ]
+        },
+        "P": {
+          "type": "composite",
+          "note": "带点复合编码，不是可加减比较的小数。原码保留，分项仅按点前与点后记录展示；不补未记录值及数值存储丢失的尾零，整体不推算名次或绘图。",
+          "compositeParts": [
+            {
+              "id": "primary",
+              "label": "军用飞机",
+              "unit": null
+            },
+            {
+              "id": "secondary",
+              "label": "运输机",
+              "unit": null
+            }
+          ]
+        },
+        "Z": {
+          "name": "未命名辅助字段（Z列）",
+          "role": "auxiliary"
+        }
+      }
+    }
+  ],
+  "domains": [
+    {
+      "id": "politics",
+      "name": "政治",
+      "summaryColumn": "E",
+      "metricId": "summary-E",
+      "direction": "asc",
+      "kind": "rank",
+      "weight": 0.15
+    },
+    {
+      "id": "economy",
+      "name": "经济",
+      "summaryColumn": "F",
+      "metricId": "summary-F",
+      "direction": "asc",
+      "kind": "rank",
+      "weight": 0.3
+    },
+    {
+      "id": "military",
+      "name": "军事",
+      "summaryColumn": "G",
+      "metricId": "summary-G",
+      "direction": "asc",
+      "kind": "rank",
+      "weight": 0.3
+    },
+    {
+      "id": "transport",
+      "name": "交通",
+      "summaryColumn": "H",
+      "metricId": "summary-H",
+      "direction": "desc",
+      "kind": "score",
+      "weight": 0.02
+    },
+    {
+      "id": "agriculture",
+      "name": "农业",
+      "summaryColumn": "I",
+      "metricId": "summary-I",
+      "direction": "desc",
+      "kind": "score",
+      "weight": 0.04
+    },
+    {
+      "id": "energy",
+      "name": "能源",
+      "summaryColumn": "J",
+      "metricId": "summary-J",
+      "direction": "desc",
+      "kind": "score",
+      "weight": 0.05
+    },
+    {
+      "id": "minerals",
+      "name": "矿产",
+      "summaryColumn": "K",
+      "metricId": "summary-K",
+      "direction": "desc",
+      "kind": "score",
+      "weight": 0.05
+    },
+    {
+      "id": "stability",
+      "name": "稳定",
+      "summaryColumn": "L",
+      "metricId": "summary-L",
+      "direction": "desc",
+      "kind": "score",
+      "weight": 0.09
+    }
+  ],
+  "knownErrors": [
+    {
+      "sheet": "能源",
+      "column": "N",
+      "entity": "瑞典",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "P",
+      "entity": "瑞典",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "N",
+      "entity": "瑞士",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "P",
+      "entity": "瑞士",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "N",
+      "entity": "朝鲜",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "P",
+      "entity": "朝鲜",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "N",
+      "entity": "新加坡",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "P",
+      "entity": "新加坡",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "N",
+      "entity": "韩国",
+      "error": "#DIV/0!"
+    },
+    {
+      "sheet": "能源",
+      "column": "P",
+      "entity": "韩国",
+      "error": "#DIV/0!"
+    }
+  ],
+  "metadataPolicy": "仅清除作者/最后编辑者及打印机元数据；所有数据、公式与缓存不变。来源、单位、年份未明示则为null。",
+  "reviewedDefinedNames": [
+    {
+      "name": "_xlnm._FilterDatabase",
+      "localSheetId": "5",
+      "text": "稳定!$D$1:$R$52",
+      "hidden": true
+    }
+  ],
+  "referenceFormula": "=100*(0.15*(51-E2)/50+0.3*(51-F2)/50+0.3*(51-G2)/50+0.02*H2/5+0.04*I2/5+0.05*J2/5+0.05*K2/5+0.09*L2/5)/(1-0.05*MIN(H2:L2))",
+  "referenceFormulaOrigin": "O2",
+  "referenceFormulaExceptions": {
+    "欧盟": {
+      "origin": "O4",
+      "formula": "=100*(0.15*(51-E4)/50+0.3*(51-F4)/50+0.3*(51-G4)/50+0.02*H4/5+0.04*I4/5+0.05*J4/5+0.05*K4/5+0.09*L4/5)/(1-0.05*(MIN(H4:L4)-0.5))"
+    }
+  }
+}
