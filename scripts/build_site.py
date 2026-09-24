@@ -70,6 +70,10 @@ document.addEventListener('click', function(event) {
 }, true);
 '''
         html = html.replace('<link rel="stylesheet" href="./styles.css">', '<style>' + css.replace('</style', '<\\/style') + '</style>')
+        guide_tag = '<script src="./reading-guide.js"></script>'
+        if guide_tag in html:
+            guide = (output / 'reading-guide.js').read_text(encoding='utf-8')
+            html = html.replace(guide_tag, '<script>' + guide.replace('</script', '<\\/script') + '</script>')
         icon = base64.b64encode((output / 'favicon.svg').read_bytes()).decode('ascii')
         html = html.replace('href="./favicon.svg"', 'href="data:image/svg+xml;base64,' + icon + '"')
         html = re.sub(r'<script type="module" src="\./app\.js"></script>', lambda _: '<script>window.NATIONAL_POWER_DATA=' + embedded + ';window.NATIONAL_POWER_DOWNLOADS=' + embedded_downloads + ';' + download_script + '</script><script type="module">' + js.replace('</script', '<\\/script') + '</script>', html)
