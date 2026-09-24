@@ -8,7 +8,7 @@
 
 **2026-09-24 上轮阅读体验修订已上线并复验。** 本地及 Actions 共 **42 项测试通过**；桌面、手机尺寸浏览器及 23 个线上资源/下载请求验证通过。新增研究导读与领域解释、修正名次显示，并解决旧浏览器缓存混用。[上轮验收记录](docs/qa/browser-release-2026-09-24.md) · [上轮部署](https://github.com/Lawrence35952563/National-Power/actions/runs/35947808774)。
 
-**本轮表格与导航交互修订已完成本地检查，尚待发布验收。** 新增 8 项测试，合计 **50 项本地测试通过**。下文已按新交互更新；线上是否已更新，以[本轮验收记录](docs/qa/interaction-release-2026-09-24.md)及[发布状态](docs/deployment-status.md)为准。
+**本轮表格与导航交互修订已部署并实际验证。** 新增 8 项测试，合计 **50 项本地与 Actions 测试通过**；桌面与 390 像素手机视口实操、23 个线上资源和下载检查通过。[功能提交 8f7aeb7](https://github.com/Lawrence35952563/National-Power/commit/8f7aeb7c111a594fc59c32927de59639fe3a5ef7) · [成功 Actions 35964560878](https://github.com/Lawrence35952563/National-Power/actions/runs/35964560878) · [本轮验收记录](docs/qa/interaction-release-2026-09-24.md)。
 
 - 网站地址（已验证）：[国家长期能力综合排名](https://lawrence35952563.github.io/National-Power/)
 - 第一次使用：[使用说明](docs/user-guide.md)

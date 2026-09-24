@@ -4,7 +4,7 @@
 
 **首发版本已于 2026-09-23 上线并验证。** [打开网站](https://lawrence35952563.github.io/National-Power/)。首发时本地与 GitHub Actions 的 34 项测试通过，详见[首发验收记录](qa/browser-release-2026-09-23.md)。2026-09-24 上轮阅读体验修订已通过本地与 Actions 的 42 项测试，并完成桌面、手机视口及线上复验，详见[上轮验收记录](qa/browser-release-2026-09-24.md)。
 
-本说明已更新为本轮表格与导航交互修订的用法。**本轮新增 8 项测试，合计 50 项本地测试通过，发布及线上验收尚待完成。** 当前进度见[本轮验收记录](qa/interaction-release-2026-09-24.md)和[发布状态](deployment-status.md)。
+本说明已更新为本轮表格与导航交互修订的用法。**本轮已部署并实际验证，新增 8 项测试，合计 50 项本地与 Actions 测试通过。** 实际验收范围见[本轮验收记录](qa/interaction-release-2026-09-24.md)和[发布状态](deployment-status.md)。
 
 ## 怎么看网站
 

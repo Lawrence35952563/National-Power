@@ -1,5 +1,11 @@
 # 发布状态
 
+**2026-09-24：本轮表格与导航交互修订已部署并实际验证。** [网站](https://lawrence35952563.github.io/National-Power/) · [功能提交 8f7aeb7](https://github.com/Lawrence35952563/National-Power/commit/8f7aeb7c111a594fc59c32927de59639fe3a5ef7) · [成功 Actions 35964560878](https://github.com/Lawrence35952563/National-Power/actions/runs/35964560878)。
+
+本地和 CI 的 50 项测试通过。紧凑比较矩阵、多字段对照、主题列组合、国家页定位和浏览状态恢复已完成；真实桌面 1440×960、手机 390×844 实操及 23 个线上资源/下载请求通过。源 Excel、研究配置、解释文件和构建工作流未修改。[本轮完整验收](qa/interaction-release-2026-09-24.md)。
+
+以下为上轮阅读体验修订及首发历史。
+
 **2026-09-24：阅读体验修订已上线并实际验证。** [网站](https://lawrence35952563.github.io/National-Power/) · [源码提交 bb62cdb](https://github.com/Lawrence35952563/National-Power/commit/bb62cdb58b1b1620f07edbd374fcc6ff68e0527b) · [成功 Actions](https://github.com/Lawrence35952563/National-Power/actions/runs/35947808774)。
 
 本地与 CI 的 42 项测试通过。新增导读、领域解释和明确阅读路径；名次与基础评分分开表达，空元信息省略，源码资源自动使用内容哈希版本。真实桌面/手机视口、线上子路径与下载、23 个 HTTP 请求均已复验。数据源未改。[本轮详细验收](qa/browser-release-2026-09-24.md)。
