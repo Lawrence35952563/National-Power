@@ -6,7 +6,7 @@
 
 **首发版本已于 2026-09-23 上线并完成实际验证。** [访问网站](https://lawrence35952563.github.io/National-Power/) · [首次成功部署](https://github.com/Lawrence35952563/National-Power/actions/runs/35825621835)。首发时 Windows 本地及 GitHub Actions 均通过 34 项测试，并用真实 Chromium 浏览器检查桌面和手机尺寸页面、路由、交互及下载。详细范围与未测项目见[首发浏览器和线上验收](docs/qa/browser-release-2026-09-23.md)。
 
-以下功能说明对应本轮阅读体验修订，已通过 **41 项本地测试（原有 34 项及新增 7 项）**；本轮是否已部署及完成线上验收，以[发布状态](docs/deployment-status.md)为准。
+**2026-09-24 阅读体验修订已上线并复验。** 本地及 Actions 共 **42 项测试通过**；桌面、手机尺寸浏览器及 23 个线上资源/下载请求验证通过。新增研究导读与领域解释、修正名次显示，并解决旧浏览器缓存混用。[本轮验收记录](docs/qa/browser-release-2026-09-24.md) · [本轮部署](https://github.com/Lawrence35952563/National-Power/actions/runs/35947808774)。
 
 - 网站地址（已验证）：[国家长期能力综合排名](https://lawrence35952563.github.io/National-Power/)
 - 第一次使用：[使用说明](docs/user-guide.md)

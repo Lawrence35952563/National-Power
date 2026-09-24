@@ -1,5 +1,12 @@
 # 发布状态
 
+**2026-09-24：阅读体验修订已上线并实际验证。** [网站](https://lawrence35952563.github.io/National-Power/) · [源码提交 bb62cdb](https://github.com/Lawrence35952563/National-Power/commit/bb62cdb58b1b1620f07edbd374fcc6ff68e0527b) · [成功 Actions](https://github.com/Lawrence35952563/National-Power/actions/runs/35947808774)。
+
+本地与 CI 的 42 项测试通过。新增导读、领域解释和明确阅读路径；名次与基础评分分开表达，空元信息省略，源码资源自动使用内容哈希版本。真实桌面/手机视口、线上子路径与下载、23 个 HTTP 请求均已复验。数据源未改。[本轮详细验收](qa/browser-release-2026-09-24.md)。
+
+以下保留首次发布历史。
+
+
 **2026-09-23：已上线并实际验证。** 网站：[https://lawrence35952563.github.io/National-Power/](https://lawrence35952563.github.io/National-Power/)。
 
 ## 可追溯发布证据
