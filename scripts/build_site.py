@@ -3,6 +3,7 @@
 from pathlib import Path
 import argparse
 import base64
+import hashlib
 import json
 import mimetypes
 import re
@@ -11,6 +12,21 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+
+def version_asset_links(html, asset_directory):
+    """Version local application assets by bytes, preserving Pages-relative URLs."""
+    pattern = re.compile(r'''\b(?P<attribute>href|src)\s*=\s*(?P<quote>["'])(?P<asset>\./(?:styles\.css|app\.js|reading-guide\.js))(?P=quote)''')
+    versions = {}
+
+    def replace(match):
+        asset = match['asset']
+        if asset not in versions:
+            versions[asset] = hashlib.sha256((Path(asset_directory) / asset).read_bytes()).hexdigest()[:12]
+        quote = match['quote']
+        return f"{match['attribute']}={quote}{asset}?v={versions[asset]}{quote}"
+
+    return pattern.sub(replace, html)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -28,6 +44,8 @@ def main():
             shutil.copy2(source, output / source.name)
     # A single-file preview uses the hosted app's code/data and embeds downloads.
     html = (output / 'index.html').read_text(encoding='utf-8')
+    # Keep the original markup for offline embedding and direct source previews.
+    (output / 'index.html').write_text(version_asset_links(html, output), encoding='utf-8')
     if 'window.NATIONAL_POWER_DATA' in (output / 'app.js').read_text(encoding='utf-8'):
         css = (output / 'styles.css').read_text(encoding='utf-8')
         js = (output / 'app.js').read_text(encoding='utf-8')

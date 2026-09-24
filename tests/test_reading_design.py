@@ -1,10 +1,14 @@
 """Reading semantics and standalone-guide regression checks, without a DOM stub."""
 from html.parser import HTMLParser
 from pathlib import Path
+import hashlib
 import os
+import runpy
 import shutil
 import subprocess
+import tempfile
 import unittest
+from urllib.parse import parse_qs, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +34,62 @@ class ScriptContents(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "script":
             self.current = None
+
+
+class ApplicationAssetLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = {}
+
+    def handle_starttag(self, tag, attrs):
+        for name, value in attrs:
+            if name not in {"href", "src"} or not value:
+                continue
+            filename = Path(urlsplit(value).path).name
+            if filename in {"styles.css", "app.js", "reading-guide.js"}:
+                self.links[filename] = value
+
+
+class HostedAssetVersions(unittest.TestCase):
+    def test_asset_urls_track_only_their_own_bytes_and_keep_relative_paths(self):
+        version_asset_links = runpy.run_path(str(ROOT / "scripts/build_site.py"))["version_asset_links"]
+        names = {"styles.css", "app.js", "reading-guide.js"}
+
+        def links(html):
+            parser = ApplicationAssetLinks()
+            parser.feed(html)
+            self.assertEqual(set(parser.links), names)
+            return parser.links
+
+        actual = links((DIST / "index.html").read_text(encoding="utf-8"))
+        for name, href in actual.items():
+            parsed = urlsplit(href)
+            self.assertEqual(parsed.path, "./" + name, "Repository Pages assets stay relative")
+            digest = hashlib.sha256((DIST / name).read_bytes()).hexdigest()[:12]
+            self.assertEqual(parse_qs(parsed.query), {"v": [digest]})
+
+        original_html = (ROOT / "web/index.html").read_text(encoding="utf-8")
+        self.assertTrue(all(not urlsplit(href).query for href in links(original_html).values()),
+                        "Source markup must remain usable without a build")
+        with tempfile.TemporaryDirectory(prefix="national-power-assets-") as temporary:
+            directory = Path(temporary)
+            for name in names:
+                (directory / name).write_bytes((ROOT / "web" / name).read_bytes())
+            baseline_html = version_asset_links(original_html, directory)
+            baseline = links(baseline_html)
+            self.assertEqual(version_asset_links(original_html, directory), baseline_html,
+                             "Identical bytes must keep identical URLs across builds")
+            for changed in names:
+                path = directory / changed
+                original = path.read_bytes()
+                path.write_bytes(original + b"\n")
+                updated = links(version_asset_links(original_html, directory))
+                self.assertNotEqual(updated[changed], baseline[changed], changed)
+                for unchanged in names - {changed}:
+                    self.assertEqual(updated[unchanged], baseline[unchanged], unchanged)
+                expected = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+                self.assertEqual(parse_qs(urlsplit(updated[changed]).query), {"v": [expected]})
+                path.write_bytes(original)
 
 
 @unittest.skipUnless(NODE, "Node.js is required for reading-semantics checks")
