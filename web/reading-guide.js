@@ -11,22 +11,16 @@
 const READING_GUIDE = {
   groups: [
     {
-      id: 'capability',
-      title: '形成行动能力',
-      intro: '经济观察产出与积累，政治观察人口质量、技术和对外影响，军事观察作战与动员能力。',
+      id: 'rank',
+      title: '三项排名',
+      intro: '政治、经济、军事按名次排列，数字越小越靠前。',
       domains: ['politics', 'economy', 'military']
     },
     {
-      id: 'supply',
-      title: '维持基础供给',
-      intro: '农业提供食物、水和生物资源，能源维持生产与运行，矿产提供工业原料。各领域都要比较本地供给与需求。',
-      domains: ['agriculture', 'energy', 'minerals']
-    },
-    {
-      id: 'organization',
-      title: '连接与持续组织',
-      intro: '交通连接人员、物资与信息；稳定观察国家在长期压力下组织人口资源、保持秩序的能力。',
-      domains: ['transport', 'stability']
+      id: 'score',
+      title: '五项评分',
+      intro: '交通、农业、能源、矿产、稳定采用 1–5 级评分。',
+      domains: ['transport', 'agriculture', 'energy', 'minerals', 'stability']
     }
   ],
   domains: {
