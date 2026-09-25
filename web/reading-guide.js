@@ -141,7 +141,7 @@ const READING_GUIDE = {
       facets: [
         {
           title: '基础建设与工业材料',
-          text: '铁用于炼钢，铜用于电力和电子设备，铝满足轻量化需求。表中两列“铝”分别保留，具体口径见字段说明。',
+          text: '铁用于炼钢，铜用于电力和电子设备，铝满足轻量化需求。',
           fields: ['minerals-C', 'minerals-D', 'minerals-E', 'minerals-Z']
         },
         {

@@ -642,3 +642,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 /* Secondary references remain compact in the shared footer. */
 .footer-links{display:flex;gap:4px 18px;flex-wrap:wrap;margin-top:8px;font-size:13px;font-weight:400;align-items:center}
 .footer-links a{padding:4px 0;white-space:nowrap;min-height:36px;display:inline-flex;align-items:center}
+
+/* Confirmed code meanings remain readable next to the original record. */
+.coded-value{display:inline-block;max-width:170px;white-space:normal;line-height:1.6;font:inherit;text-align:inherit}.coded-value small{display:block;font:12px/1.6 var(--sans);color:var(--muted)}
+.composite-readout .coded-value{font-size:16px}

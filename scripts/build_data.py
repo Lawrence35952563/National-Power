@@ -117,6 +117,30 @@ def parse_composite(cell, definitions):
     return result
 
 
+def annotate_cell(cell, definition):
+    """Attach author-confirmed meanings without changing source or parsed codes."""
+    if cell.get('value') is None or cell.get('error'):
+        return
+    source = definition.get('meaningEvidence')
+    for code, label in definition.get('codeMeanings', {}).items():
+        if isinstance(cell['value'], (int, float)) and cell['value'] == float(code):
+            cell.update(meaning=label, meaningCode=code, meaningSource=source)
+    composite = cell.get('composite')
+    if not composite or composite['status'] == 'unparsed':
+        return
+    parts = {part['id']:part for part in composite['parts']}
+    for rule in definition.get('compositeMeanings', []):
+        when = rule['when']
+        if any(parts[key]['digits'] != when[key] for key in ('primary','secondary') if key in when):
+            continue
+        if when.get('secondaryNonzero') and not parts['secondary'].get('value'):
+            continue
+        part = parts[rule['part']]
+        part.update(meaning=rule['label'], meaningCode=composite['display'],
+                    meaningSource=source, countable=False)
+        composite['note'] += ' ' + source + '：' + rule['label'] + '；该分项为标记。'
+
+
 def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -356,15 +380,26 @@ def create_indicator(spec, column, samples):
     cell_types = {v['kind'] for v in samples if v['kind'] not in ('blank','error')}
     typ = override.get('type','number' if cell_types <= {'number'} else 'text')
     name = override.get('name',str(header) if header is not None else f'未命名辅助字段（{column}列）')
-    # Metadata is extracted only when the workbook header explicitly says it.
+    # Literal header metadata and reviewed unit analysis have distinct evidence.
     year = header if isinstance(header,int) and 1900 <= header <= 2100 else None
     year_match = re.search(r'(?:19|20)\d{2}',str(header))
     if year_match: year = int(year_match[0])
     unit = next((u for u in ['十亿美元','亿美元','万亿','百万','平方公里','吨'] if u in str(header)),None)
     metadata_evidence = {'unit':'原始表头' if unit else None,'year':'原始表头' if year else None,'source':None}
+    unit_evidence = override.get('unitEvidence')
+    if 'unit' in override:
+        if not unit_evidence or not unit_evidence.get('detail'):
+            raise ValueError('配置单位缺少依据：' + spec['id'] + '-' + column)
+        unit = override['unit']
+        metadata_evidence['unit'] = '单位核对：' + unit_evidence['basis']
     direction = 'asc' if role == 'rank' or '排名' in str(header) else None
     note = override.get('note')
     definition = {'id':spec['id']+'-'+column,'name':name,'originalHeader':header,'sheetId':spec['id'],'sheetName':spec['name'],'column':column,'group':spec['name'],'role':role,'type':typ,'direction':direction,'unit':unit,'year':year,'source':None,'estimate':None,'metadataEvidence':metadata_evidence,'chartable':typ=='number' and role not in ('auxiliary','identity','classification'),'rankingAllowed':typ=='number' and role not in ('auxiliary','identity','classification'),'note':note}
+    if unit_evidence:
+        definition['unitEvidence'] = unit_evidence
+    for key in ('codeMeanings','compositeMeanings','meaningEvidence'):
+        if key in override:
+            definition[key] = override[key]
     if typ=='composite':
         definition['compositeParts'] = override.get('compositeParts',[])
     return definition
@@ -532,6 +567,8 @@ def build(source, output, config_path):
                     if cell['value'] is not None:
                         cell['value'] = cell['raw']
                         cell['kind'] = 'composite'
+                if row > 1 and definition:
+                    annotate_cell(cell, definition)
                 row_cells[col] = cell
                 if entity and definition:
                     entity['metrics'][definition['id']] = dict(cell)
@@ -628,14 +665,14 @@ def build(source, output, config_path):
     dataset['downloads'].insert(2,{'label':'完整数据层 · JSON','href':'data/dataset.json','format':'json','description':'含字段定义、全部单元格、公式、缓存、原始文本及溯源坐标。'})
     with (download_dir/'military-components.csv').open('w',encoding='utf-8-sig',newline='') as out:
         writer = csv.writer(out)
-        writer.writerow(['实体','字段ID','原字段','原XML码','可读组合码','第一项','第一项记录码','第一项数值','第一项状态','第二项','第二项记录码','第二项数值','第二项状态','组合状态','说明'])
+        writer.writerow(['实体','字段ID','原字段','原XML码','可读组合码','第一项','第一项记录码','第一项数值','第一项状态','第二项','第二项记录码','第二项数值','第二项状态','组合状态','说明','第一项作者释义','第二项作者释义'])
         for entity in entities:
             for definition in indicators:
                 if definition['type']!='composite': continue
                 cell = entity['metrics'][definition['id']]
                 composite = cell['composite']
                 a,b = composite['parts']
-                writer.writerow([safe_csv_text(v) for v in [entity['name'],definition['id'],definition['originalHeader'],cell['raw'],composite['display'],a['label'],a['digits'],a['value'],a['status'],b['label'],b['digits'],b['value'],b['status'],composite['status'],composite['note']]])
+                writer.writerow([safe_csv_text(v) for v in [entity['name'],definition['id'],definition['originalHeader'],cell['raw'],composite['display'],a['label'],a['digits'],a['value'],a['status'],b['label'],b['digits'],b['value'],b['status'],composite['status'],composite['note'],a.get('meaning'),b.get('meaning')]])
     dataset['downloads'].append({'label':'军事复合字段分项 · CSV','href':'downloads/military-components.csv','format':'csv','description':'原码、可读码和两个分项的记录码与状态；不补未记录值或丢失尾零，不能作为完整军备清单。'})
     (data_dir/'dataset.json').write_text(json.dumps(dataset,ensure_ascii=False,separators=(',',':'),allow_nan=False)+'\n',encoding='utf-8')
     (data_dir/'quality.json').write_text(json.dumps(quality,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')

@@ -208,6 +208,173 @@
         "C": {
           "name": "未命名辅助字段（C列）",
           "role": "auxiliary"
+        },
+        "D": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式 D=E+F；记录如美国 43.8=25.6+18.2，属于百分数点刻度，不是0—1比值。PDF第14页解释可再生及核电发电占比；只确认单位，不据此扩展“其他”的能源构成。",
+            "sourceUrls": [
+              "https://pris.iaea.org/PRIS/PRIS_poster_2024.pdf"
+            ]
+          }
+        },
+        "E": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值如加拿大63.9、美国25.6、中国37，与PDF第14页发电占比概念及D=E+F一致；使用百分数点刻度，原值无需乘100。不得解释为全部能源消费占比。",
+            "sourceUrls": [
+              "https://pris.iaea.org/PRIS/PRIS_poster_2024.pdf"
+            ]
+          }
+        },
+        "F": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "PDF第14页核电发电占比；法国原值67.3与IAEA PRIS表中核电供电占比百分数尺度相符，且D=E+F。仅核对单位，不更新数值或观测年。",
+            "sourceUrls": [
+              "https://pris.iaea.org/PRIS/PRIS_poster_2024.pdf"
+            ]
+          }
+        },
+        "G": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原公式为W/Y：石油产量/石油消耗，同单位量相除，无乘100。原值1表示供需相等；可以大于1，不能在未换算时直接标为%。energy-L虽名为“煤炭综合”，实际公式仍为该比值。",
+            "sourceUrls": []
+          }
+        },
+        "M": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原公式为Q/S：天然气产量/天然气消耗，同单位量相除，无乘100。原值1表示供需相等；可以大于1，不能在未换算时直接标为%。energy-L虽名为“煤炭综合”，实际公式仍为该比值。",
+            "sourceUrls": []
+          }
+        },
+        "L": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原公式为T/V：煤炭产量/煤炭消耗，同单位量相除，无乘100。原值1表示供需相等；可以大于1，不能在未换算时直接标为%。energy-L虽名为“煤炭综合”，实际公式仍为该比值。",
+            "sourceUrls": []
+          }
+        },
+        "H": {
+          "unit": "年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式 X*1000000/W/365；X为百万桶、W为桶/日，换算得到年；PDF第14页定义按当前产量估算的储采年限。是时间跨度，不是公历耗尽年份。",
+            "sourceUrls": [
+              "https://www.eia.gov/tools/faqs/faq.php?id=709&t=6"
+            ]
+          }
+        },
+        "N": {
+          "unit": "年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式 R*1000/Q；R按十亿立方米、Q按百万立方米/年，换算得到年；PDF第14页定义储采年限。保留既有除零错误，不补零、不改公式。",
+            "sourceUrls": [
+              "https://www.eia.gov/naturalgas/annual/pdf/nga24.pdf"
+            ]
+          }
+        },
+        "Q": {
+          "unit": "百万立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "天然气产量原值美国分别约1069431与936799，中国约258444与424888；EIA Natural Gas Annual表B1采用年度百万立方米尺度且数量级对应。原式R*1000/Q和Q/S进一步约束尺度；不宣称这些值已逐年对齐EIA版本。",
+            "sourceUrls": [
+              "https://www.eia.gov/naturalgas/annual/pdf/nga24.pdf"
+            ]
+          }
+        },
+        "S": {
+          "unit": "百万立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "天然气消耗原值美国分别约1069431与936799，中国约258444与424888；EIA Natural Gas Annual表B1采用年度百万立方米尺度且数量级对应。原式R*1000/Q和Q/S进一步约束尺度；不宣称这些值已逐年对齐EIA版本。",
+            "sourceUrls": [
+              "https://www.eia.gov/naturalgas/annual/pdf/nga24.pdf"
+            ]
+          }
+        },
+        "R": {
+          "unit": "十亿立方米",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值俄罗斯47800、美国17710、中国6650；结合Q的百万立方米/年和N=R*1000/Q，R必须按十亿立方米计才能使储采年限为年。只补单位，不为储量值指定新年份或来源版本。",
+            "sourceUrls": [
+              "https://www.eia.gov/naturalgas/annual/pdf/nga24.pdf"
+            ]
+          }
+        },
+        "T": {
+          "unit": "百万吨/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "煤炭产量原值美国464.969/372.798，与EIA年度约512.5/410.9百万短吨经公吨换算后的量级对应；中国4402.501/4947.282亦符合百万公吨规模，L=T/V约束两列单位一致。这里“吨”是公吨，不是短吨或油当量吨。",
+            "sourceUrls": [
+              "https://www.eia.gov/coal/annual/",
+              "https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2019-full-report.pdf"
+            ]
+          }
+        },
+        "V": {
+          "unit": "百万吨/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "煤炭消耗原值美国464.969/372.798，与EIA年度约512.5/410.9百万短吨经公吨换算后的量级对应；中国4402.501/4947.282亦符合百万公吨规模，L=T/V约束两列单位一致。这里“吨”是公吨，不是短吨或油当量吨。",
+            "sourceUrls": [
+              "https://www.eia.gov/coal/annual/",
+              "https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2019-full-report.pdf"
+            ]
+          }
+        },
+        "U": {
+          "unit": "百万吨",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "煤炭储量原值美国250219、俄罗斯160364、中国138819、加拿大6582，与BP统计体系的储量百万吨尺度相符；与生产量百万吨/年区分为存量。BP报告与官方煤炭单位体系用于单位佐证，不将网页数据写回。",
+            "sourceUrls": [
+              "https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2019-full-report.pdf",
+              "https://www.eia.gov/coal/annual/"
+            ]
+          }
+        },
+        "W": {
+          "unit": "桶/日",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "石油产量原值美国22844371/20463720、沙特10872023/3695113；EIA国际石油生产消费表使用百万桶/日，换成桶/日与原记录量级一致。H=X*1000000/W/365直接锁定日流量，G=W/Y约束两列一致。字段可能覆盖其他石油液体，单位确认不等于将其改称纯原油。",
+            "sourceUrls": [
+              "https://www.eia.gov/tools/faqs/faq.php?id=709&t=6"
+            ]
+          }
+        },
+        "Y": {
+          "unit": "桶/日",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "石油消耗原值美国22844371/20463720、沙特10872023/3695113；EIA国际石油生产消费表使用百万桶/日，换成桶/日与原记录量级一致。H=X*1000000/W/365直接锁定日流量，G=W/Y约束两列一致。字段可能覆盖其他石油液体，单位确认不等于将其改称纯原油。",
+            "sourceUrls": [
+              "https://www.eia.gov/tools/faqs/faq.php?id=709&t=6"
+            ]
+          }
+        },
+        "X": {
+          "unit": "百万桶",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式H=X*1000000/W/365，W已确认为桶/日，因此X是百万桶的存量；沙特267000、加拿大170000等数量级一致。不改储量范围、数值或年份。",
+            "sourceUrls": [
+              "https://www.eia.gov/tools/faqs/faq.php?id=709&t=6"
+            ]
+          }
         }
       }
     },
@@ -249,6 +416,184 @@
         },
         "B": {
           "role": "identity"
+        },
+        "C": {
+          "unit": "平方千米",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值印度1656780、中国1275799、美国1652028；FAO资料将印度耕地规模表为约165百万公顷，换算为约165万平方千米，与原记录尺度一致。C是面积，不能直接贴“公顷”；与D=C*G*1000/Y的量纲关系另在未定项列出。",
+            "sourceUrls": [
+              "https://www.fao.org/4/ag088e/AG088E06.htm"
+            ]
+          }
+        },
+        "F": {
+          "unit": "千克/人/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式E*1000/Y；E明确为吨、Y为人数，乘1000换成千克后按人分配；表头“年人均谷物”明确年度尺度。",
+            "sourceUrls": []
+          }
+        },
+        "I": {
+          "unit": "吨/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值美国47461240、中国97496360、印度12833298为年度肉类产量规模；FAOSTAT livestock primary生产数量单位为吨。H=I*600/Y与吨转千克后折粮的关系相容；不改变肉类的品种范围。",
+            "sourceUrls": [
+              "https://data.fao.org/catalog/iso/55375b1e-51d0-47db-ac9b-536ac8a1c738"
+            ]
+          }
+        },
+        "H": {
+          "unit": "千克谷物当量/人/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式I*600/Y，等同于吨肉量×1000×原式0.6再除人口；PDF第8页明确按可替代谷物热量折算，故为按原式折算的人均谷物当量，不是饲料耗粮量。0.6仅复述既有公式系数，不新增换算。",
+            "sourceUrls": [
+              "https://data.fao.org/catalog/iso/55375b1e-51d0-47db-ac9b-536ac8a1c738"
+            ]
+          }
+        },
+        "K": {
+          "unit": "吨/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值美国3161390、中国6362305、印度7081116及加总式（中国5994800+367505等）符合纤维作物年产量公吨尺度；FAOSTAT作物生产资料使用吨。只确认质量单位，不更改加总范围或原值。",
+            "sourceUrls": [
+              "https://data.fao.org/catalog/dataset/0f0db364-04e5-4f54-a96d-da6f5657b356",
+              "https://files-faostat.fao.org/production/QCL/QCL_methodology_e.pdf"
+            ]
+          }
+        },
+        "J": {
+          "unit": "千克/人/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式K*1000/Y，K为吨/年、Y为人数。虽然表头为“人均衣物”，该原式直接对应纤维产量人均质量，不能把数值标作件/人或服装消费量。",
+            "sourceUrls": [
+              "https://data.fao.org/catalog/dataset/0f0db364-04e5-4f54-a96d-da6f5657b356"
+            ]
+          }
+        },
+        "M": {
+          "unit": "千公顷",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "美国309795、中国219978、加拿大346928、俄罗斯815312、印度72160与FAO森林面积表以1000 ha表示的记录一致；不是平方千米。FAO/CIFOR原发布表用于识别单位，未补入该表年份或外部数值。",
+            "sourceUrls": [
+              "https://www.cifor-icraf.org/publications/pdf/reports/45870-FAO-Agroforestry-for-wood-production.pdf",
+              "https://www.fao.org/forest-resources-assessment/past-assessments/fra-2020/"
+            ]
+          }
+        },
+        "N": {
+          "unit": "千卡/人/日",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表头“每日热量”，数值多在约2500—3900，与FAO食物平衡表kcal/cap/day体系一致。只确认热量与人日尺度，继续保留“供应量还是实际摄入量未精确定义”的现有说明。",
+            "sourceUrls": [
+              "https://www.fao.org/statistics/highlights-archive/highlights-detail/food-balance-sheets-2010-2022-global-regional-and-country-trends/"
+            ]
+          }
+        },
+        "P": {
+          "unit": "立方米/人/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原值如美国9271.83、加拿大73469.05与总年度水资源/人口的数量级一致；FAO AQUASTAT资源按年、人均按m³/inhabitant/year表示。各列人口年份可能不同，未按当前Y列重算。",
+            "sourceUrls": [
+              "https://www.fao.org/4/y4473e/y4473e09.htm",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "Q": {
+          "unit": "十亿立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "境内水原值在与FAO AQUASTAT km³/year一致的尺度；例如美国Q2818、R251、S3069，S在这些记录中等于Q+R，U444.3961。1立方千米=10亿立方米，T=Q/S、V=U/S约束单位一致。“循环水”原表名称不因此重命名为再生水/中水。",
+            "sourceUrls": [
+              "https://www.fao.org/docrep/pdf/010/i0132e/i0132e03a.pdf",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "R": {
+          "unit": "十亿立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "流入水原值在与FAO AQUASTAT km³/year一致的尺度；例如美国Q2818、R251、S3069，S在这些记录中等于Q+R，U444.3961。1立方千米=10亿立方米，T=Q/S、V=U/S约束单位一致。“循环水”原表名称不因此重命名为再生水/中水。",
+            "sourceUrls": [
+              "https://www.fao.org/docrep/pdf/010/i0132e/i0132e03a.pdf",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "S": {
+          "unit": "十亿立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "循环水原值在与FAO AQUASTAT km³/year一致的尺度；例如美国Q2818、R251、S3069，S在这些记录中等于Q+R，U444.3961。1立方千米=10亿立方米，T=Q/S、V=U/S约束单位一致。“循环水”原表名称不因此重命名为再生水/中水。",
+            "sourceUrls": [
+              "https://www.fao.org/docrep/pdf/010/i0132e/i0132e03a.pdf",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "U": {
+          "unit": "十亿立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "年用水量原值在与FAO AQUASTAT km³/year一致的尺度；例如美国Q2818、R251、S3069，S在这些记录中等于Q+R，U444.3961。1立方千米=10亿立方米，T=Q/S、V=U/S约束单位一致。“循环水”原表名称不因此重命名为再生水/中水。",
+            "sourceUrls": [
+              "https://www.fao.org/docrep/pdf/010/i0132e/i0132e03a.pdf",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "W": {
+          "unit": "十亿立方米/年",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式X=W/U，U为十亿立方米/年且无换算系数；沙特W5.84、U23.38，X约0.2498，确认为同单位年度淡化水量，不是立方米/日。只确认体积时间单位，不将容量/产量边界改写。",
+            "sourceUrls": [
+              "https://www.fao.org/docrep/pdf/010/i0132e/i0132e03a.pdf",
+              "https://www.fao.org/aquastat/en/databases/maindatabase/"
+            ]
+          }
+        },
+        "T": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式为Q/S：境内水/表内循环水，同单位年水量相除，无乘100。保留原值和原表名称；尤其V不能据表头改解为境内供给占总供给比例。超过1的值仍保留，不截断。",
+            "sourceUrls": []
+          }
+        },
+        "V": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式为U/S：年用水量/表内循环水，同单位年水量相除，无乘100。保留原值和原表名称；尤其V不能据表头改解为境内供给占总供给比例。超过1的值仍保留，不截断。",
+            "sourceUrls": []
+          }
+        },
+        "X": {
+          "unit": "比值（1=100%）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原式为W/U：海水淡化总量/年用水量，同单位年水量相除，无乘100。保留原值和原表名称；尤其V不能据表头改解为境内供给占总供给比例。超过1的值仍保留，不截断。",
+            "sourceUrls": []
+          }
+        },
+        "Y": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "表头人口，原值美国340110988、中国1408280000；作为F=E*1000/Y及J=K*1000/Y的分母，直接为人数而非万人或百万人。",
+            "sourceUrls": []
+          }
         }
       }
     },
@@ -291,7 +636,132 @@
         },
         "W": {
           "name": "未命名辅助字段（W列）",
-          "role": "auxiliary"
+          "role": "auxiliary",
+          "unit": "公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "未命名W列直接给F列道路长度供值；F=W/10000，因此F的万公里与W的公里对应。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf"
+            ]
+          }
+        },
+        "F": {
+          "unit": "万公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 F12=W12/10000；美国430.4715对应W12道路原值4304715。中国、日本相同换算关系。 原报告第15页说明道路长度；CIA交通字段用公里。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf"
+            ]
+          }
+        },
+        "G": {
+          "unit": "公里/10平方公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 G12=W12*10/V12，G30=W30*10/V30；W为道路公里，V为面积平方公里。 分子乘10，所以不是常见的每100平方公里，也不是百分比。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf",
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/AG.SRF.TOTL.K2"
+            ]
+          }
+        },
+        "I": {
+          "unit": "公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第15页“铁路里程”；原表美国220044、中国159000、日本27311的数量尺度与公里一致。 CIA铁路资料的长度单位为公里；J列铁路密度使用I列直接除以平方公里面积。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf"
+            ]
+          }
+        },
+        "J": {
+          "unit": "公里/100平方公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 J12=I12*100/V12，I列铁路公里，V列平方公里。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf",
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/AG.SRF.TOTL.K2"
+            ]
+          }
+        },
+        "L": {
+          "unit": "个",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第15页“机场数量”；美国5054、中国510、日本142为设施计数。",
+            "sourceUrls": []
+          }
+        },
+        "M": {
+          "unit": "个/万平方公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 M12=L12*10000/V12；L为机场数量、V为平方公里面积。",
+            "sourceUrls": [
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/AG.SRF.TOTL.K2"
+            ]
+          }
+        },
+        "O": {
+          "unit": "辆",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第15页“汽车数量”；美国283400986、中国353000000、日本82876295为车辆计数；P列使用O/U换成人均车辆。",
+            "sourceUrls": []
+          }
+        },
+        "P": {
+          "unit": "辆/人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 P12=O12/U12、P30=O30/U30；分子是汽车辆数、分母是人口人数。",
+            "sourceUrls": []
+          }
+        },
+        "R": {
+          "unit": "公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第15页“内河航道里程”；美国41009、中国68000、日本1770为长度尺度。 CIA水道字段是可通航内河长度，单位公里；T列使用R除以面积。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf"
+            ]
+          }
+        },
+        "T": {
+          "unit": "公里/100平方公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表 T12=R12*100/V12；R为内河航道公里、V为平方公里面积。 “通航比”是这里的长度密度，不能因乘100而加百分号。",
+            "sourceUrls": [
+              "https://www.cia.gov/readingroom/docs/%20THE%20WORLD%20FACTBOOK%5B16170469%5D.pdf",
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/AG.SRF.TOTL.K2"
+            ]
+          }
+        },
+        "U": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表美国340110988、中国1408280000、日本123300000是人口人数尺度；P列O/U形成辆/人。",
+            "sourceUrls": [
+              "https://datatopics.worldbank.org/JobsDiagnostics/docs/join_appendices.pdf"
+            ]
+          }
+        },
+        "V": {
+          "unit": "平方公里",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表美国8000000、中国7000000、日本377915、新加坡740；面积单位为平方公里。 原报告第15页说明本领域密度分母采用作者调整后的有效国土面积。",
+            "sourceUrls": [
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/AG.SRF.TOTL.K2"
+            ]
+          }
         }
       }
     },
@@ -346,6 +816,83 @@
         "M": {
           "name": "未命名辅助字段（M列）",
           "role": "auxiliary"
+        },
+        "P": {
+          "codeMeanings": {
+            "1": "扣分项",
+            "-1": "加分项"
+          },
+          "meaningEvidence": "作者确认（2026-09-25）"
+        },
+        "Q": {
+          "codeMeanings": {
+            "1": "扣分项",
+            "-1": "加分项"
+          },
+          "meaningEvidence": "作者确认（2026-09-25）"
+        },
+        "R": {
+          "codeMeanings": {
+            "1": "扣分项",
+            "-1": "加分项"
+          },
+          "meaningEvidence": "作者确认（2026-09-25）"
+        },
+        "D": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第11页“城市化率”；原表美国80.12、中国65.89、日本92.19。 世界银行对应城市人口占总人口比采用%。",
+            "sourceUrls": [
+              "https://liveprod.worldbank.org/en/indicator/sp-urb-totl-in-zs"
+            ]
+          }
+        },
+        "H": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第11页明确“十年平均通胀”；原表美国1.76、中国2.59、日本0.48。 物价通胀年率使用百分数；年度百分率的算术平均仍为同一百分数尺度。",
+            "sourceUrls": [
+              "https://data360files.worldbank.org/data360-data/metadata/WB_WDI/WB_WDI_FP_CPI_TOTL_ZG.pdf"
+            ]
+          }
+        },
+        "I": {
+          "unit": "百万人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表K列公式(I*1000000-O)*10/O，O为当前人口人数，直接确认I须乘100万转成人数。 原表美国351、中国1363.1、日本116.6符合百万人尺度。",
+            "sourceUrls": []
+          }
+        },
+        "L": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表美国174174000、中国773880000、日本69382000为劳动力人数。 原表N=L*100/O，分母O是人口人数；因此L与O具有相同人数单位。",
+            "sourceUrls": [
+              "https://datatopics.worldbank.org/JobsDiagnostics/docs/join_appendices.pdf"
+            ]
+          }
+        },
+        "N": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表N12=L12*100/O12（行号依实体而变）；劳动力人数除以人口人数再乘100。",
+            "sourceUrls": []
+          }
+        },
+        "O": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "与交通U及经济V相同的人口人数；用作劳动力比例和未来人口变动的分母。",
+            "sourceUrls": [
+              "https://datatopics.worldbank.org/JobsDiagnostics/docs/join_appendices.pdf"
+            ]
+          }
         }
       }
     },
@@ -388,6 +935,53 @@
         "K": {
           "name": "未命名辅助字段（K列）",
           "role": "auxiliary"
+        },
+        "H": {
+          "unit": "%（占GDP）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第12页明确写“科研投入占GDP”；原表美国3.59、中国2.56、日本3.41。 世界银行R&D metadata定义为研发总支出/GDP×100，单位% of GDP。",
+            "sourceUrls": [
+              "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/GB.XPD.RSDV.GD.ZS"
+            ]
+          }
+        },
+        "I": {
+          "unit": "%（占投票总数）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第12页明确“IMF投票份额”；原表美国16.49、中国6.08、日本6.14。 IMF官方表区分投票数量与percent of total，该列数值是份额尺度。",
+            "sourceUrls": [
+              "https://www.imf.org/en/about/executive-board/members-quotas"
+            ]
+          }
+        },
+        "J": {
+          "unit": "个",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第12页明确“大使馆数量”；原表美国168、中国173、日本152为机构计数。",
+            "sourceUrls": []
+          }
+        },
+        "M": {
+          "unit": "家",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第12页明确“跨国公司数量”；原表美国294、中国202、日本88为企业计数。",
+            "sourceUrls": []
+          }
+        },
+        "N": {
+          "unit": "亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第12页明确该项合并主权基金与外汇储备；原表日本13359.883333、加拿大1225.616667、挪威18823.556356、新加坡13209.132。 按亿美元解释分别对应约1.336万亿、1225.6亿、1.882万亿和1.321万亿美元，与储备/主权基金资产规模一致；百万或十亿美元解释均相差10—100倍。 IMF储备共同报告币种为美元；日本财务省2024年末表约123万US$million，验证日本记录的万亿美元数量级。",
+            "sourceUrls": [
+              "https://data.imf.org/Datasets/IRFCL",
+              "https://www.mof.go.jp/english/policy/international_policy/reference/official_reserve_assets/e0612.html"
+            ]
+          }
         }
       }
     },
@@ -447,6 +1041,194 @@
         "C": {
           "name": "未命名辅助字段（C列）",
           "role": "auxiliary"
+        },
+        "O": {
+          "unit": "十亿千瓦时",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原报告第9页说明用电量；原表美国4272.91、中国9443.07、日本1013.26、印度1956.55，数量尺度对应TWh。 EIA国际电力消费表以billion kWh计量；1十亿千瓦时=1太瓦时。",
+            "sourceUrls": [
+              "https://www.eia.gov/international/rankings/country/IRN?aid=2&f=A&pid=2&u=0&v=none&y=01%2F01%2F2023"
+            ]
+          }
+        },
+        "V": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "美国340110988、中国1408280000、日本123300000；与交通、稳定领域人口分母相同。",
+            "sourceUrls": [
+              "https://datatopics.worldbank.org/JobsDiagnostics/docs/join_appendices.pdf"
+            ]
+          }
+        },
+        "X": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "Y": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "Z": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AA": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AB": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AC": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AD": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AE": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AF": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AG": {
+          "unit": "%",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表Q列十年增长因子逐项采用(1+0.01*该列)，直接确认年增长列采用百分数数值。 IMF对实际GDP年增长率使用annual percent change；具体年份沿用该列表头，不以外部资料新增或更换年份。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AH": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表E列明确表头“GDP购买力平价十亿美元”，其公式为AVERAGE(AH:AJ)，三个源列沿用同一十亿货币数量级。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AI": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表E列明确表头“GDP购买力平价十亿美元”，其公式为AVERAGE(AH:AJ)，三个源列沿用同一十亿货币数量级。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AJ": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表E列明确表头“GDP购买力平价十亿美元”，其公式为AVERAGE(AH:AJ)，三个源列沿用同一十亿货币数量级。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AK": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表G列明确表头“GDP十亿美元”，其公式为AVERAGE(AK:AM)，三个源列沿用同一单位。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AL": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表G列明确表头“GDP十亿美元”，其公式为AVERAGE(AK:AM)，三个源列沿用同一单位。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "AM": {
+          "unit": "十亿美元",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表G列明确表头“GDP十亿美元”，其公式为AVERAGE(AK:AM)，三个源列沿用同一单位。",
+            "sourceUrls": [
+              "https://www.imf.org/en/publications/weo/frequently-asked-questions"
+            ]
+          }
+        },
+        "T": {
+          "unit": "百万人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "原表头就业人口百万，数量单位明确为百万人；只把原单位“百万”补全为人数单位。",
+            "sourceUrls": []
+          }
         }
       }
     },
@@ -520,7 +1302,18 @@
               "label": "舰载机",
               "unit": null
             }
-          ]
+          ],
+          "compositeMeanings": [
+            {
+              "when": {
+                "primary": "0",
+                "secondaryNonzero": true
+              },
+              "part": "secondary",
+              "label": "曾有航空母舰"
+            }
+          ],
+          "meaningEvidence": "作者确认（2026-09-25）"
         },
         "M": {
           "type": "composite",
@@ -536,7 +1329,17 @@
               "label": "核动力潜艇",
               "unit": null
             }
-          ]
+          ],
+          "compositeMeanings": [
+            {
+              "when": {
+                "secondary": "1"
+              },
+              "part": "secondary",
+              "label": "高级非核潜艇"
+            }
+          ],
+          "meaningEvidence": "作者确认（2026-09-25）"
         },
         "O": {
           "type": "composite",
@@ -573,6 +1376,85 @@
         "Z": {
           "name": "未命名辅助字段（Z列）",
           "role": "auxiliary"
+        },
+        "N": {
+          "codeMeanings": {
+            "0": "有五代机"
+          },
+          "meaningEvidence": "作者确认（2026-09-25）"
+        },
+        "T": {
+          "codeMeanings": {
+            "1": "北约成员",
+            "0": "其他美国盟友"
+          },
+          "meaningEvidence": "作者确认（2026-09-25）"
+        },
+        "I": {
+          "unit": "人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "现役兵力是人员数量；原表美国1328000、中国2035000的量级与人数一致。PDF第4页说明现役常备人员。",
+            "sourceUrls": []
+          }
+        },
+        "K": {
+          "unit": "万吨",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "按原表美国416.8037、英国39.4043等各国记录的量级推定为万吨；对应约416.8万、39.4万吨。GFP吨位统计以吨计，仅用来核对单位体系，不替代当前原表数字或确定其年份。",
+            "sourceUrls": [
+              "https://www.globalfirepower.com/navy-force-by-tonnage.php"
+            ]
+          }
+        },
+        "L": {
+          "unit": "个",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "导弹垂直发射单元为发射单元计数，PDF第4页说明记录一次装填的发射单元。",
+            "sourceUrls": []
+          }
+        },
+        "Q": {
+          "unit": "辆",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "坦克为车辆数量，PDF第4页将其作为地面突击装备数量。",
+            "sourceUrls": []
+          }
+        },
+        "R": {
+          "unit": "门",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "火炮为装备计数；PDF第4页包括火箭炮、榴弹炮和自行火炮，沿用原表统计范围。",
+            "sourceUrls": []
+          }
+        },
+        "U": {
+          "unit": "艘",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "舰艇数量为舰船计数，PDF第4页与吨位分别解释规模和覆盖。",
+            "sourceUrls": []
+          }
+        },
+        "W": {
+          "unit": "万亿美元（购买力平价）",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "表头GDP购买力平价万亿，采用经济表购买力平价字段的美元表述，金额尺度为万亿。两表记录时期未确定一致，不用一表数值替换另一表；不改变汇率、价格基期或原值。",
+            "sourceUrls": []
+          }
+        },
+        "X": {
+          "unit": "百万人",
+          "unitEvidence": {
+            "basis": "表头、公式与量级分析",
+            "detail": "表头人口百万；美国340.110988对应经济与交通人口记录340110988人。",
+            "sourceUrls": []
+          }
         }
       }
     }
@@ -713,7 +1595,7 @@
       "error": "#DIV/0!"
     }
   ],
-  "metadataPolicy": "仅清除作者/最后编辑者及打印机元数据；所有数据、公式与缓存不变。来源、单位、年份未明示则为null。",
+  "metadataPolicy": "数值、公式与缓存保持原表。单位来自表头或经核对的公式与量级分析，依据保存在unitEvidence；未确认的单位、来源和年份保持null。公开文件只清理文档身份与打印机信息。",
   "reviewedDefinedNames": [
     {
       "name": "_xlnm._FilterDatabase",
