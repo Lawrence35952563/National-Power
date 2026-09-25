@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>布局预览 · National Power</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#edf1f0;color:#203438;font:14px/1.6 system-ui,sans-serif}header{padding:14px 20px;background:#fff;border-bottom:1px solid #cdd8d5;display:flex;gap:18px;align-items:center;flex-wrap:wrap}label{display:flex;gap:8px;align-items:center}select,a{font:inherit}select{padding:8px;border:1px solid #b8c8c2;border-radius:4px}p{margin:0}a{color:#176657}.stage{overflow:auto;padding:18px;min-height:90vh}iframe{display:block;border:1px solid #bccdc7;background:white;flex:none;margin:0 auto;box-shadow:0 4px 20px #20343815}small{color:#586b70}
+  </style>
+</head>
+<body>
+  <header><strong>布局预览</strong><label for="preview-width">页面宽度<select id="preview-width"><option value="360">360 px</option><option value="390" selected>390 px</option><option value="768">768 px</option><option value="1440">1440 px</option></select></label><label for="preview-page">页面<select id="preview-page"><option value="#/">首页</option><option value="#/rankings">综合排名</option><option value="#/compare">实体比较</option><option value="#/data">完整数据</option><option value="#/framework">研究说明</option><option value="#/downloads">下载</option></select></label><a href="./index.html">打开网站</a><small>仅用于维护时检查响应式布局，不模拟手机硬件或触控。</small></header>
+  <div class="stage"><iframe id="site-preview" title="指定宽度的网站预览" width="390" height="844" src="./index.html#/" sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"></iframe></div>
+  <script>
+    const frame=document.getElementById('site-preview');
+    document.getElementById('preview-width').addEventListener('change',event=>{const width=Number(event.target.value);frame.width=String(width);frame.height=String(width>=768?960:844);});
+    document.getElementById('preview-page').addEventListener('change',event=>{frame.src='./index.html'+event.target.value;});
+  </script>
+</body>
+</html>
