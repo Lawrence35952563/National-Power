@@ -6,6 +6,8 @@
 
 本地构建与 74 项测试通过，桌面、390px 手机视口及自包含离线页专项检查完成。检查范围和限制见[英文版验收记录](qa/english-release-2026-10-01.md)。
 
+已部署功能提交 [ddb73fa](https://github.com/Lawrence35952563/National-Power/commit/ddb73fa21023adb4be5c5cf3c9a37fc53009fce2)，[Actions 36814956325](https://github.com/Lawrence35952563/National-Power/actions/runs/36814956325) 构建与部署成功。已实际打开[英文网站](https://lawrence35952563.github.io/National-Power/?lang=en)，复验语言切换、英文搜索、详情返回、比较分享和 Excel 下载；23 项线上资源检查通过，数据与下载保持一致。
+
 ## 2026-09-25 单位与作者编码补充
 
 基于 `34261b871fc6cfa4a01955af36525c13606f199b`，按作者授权补充数量字段单位与编码释义。82 个字段新增单位，4 个字段补全或修正；指数和六项依据不足的数量字段不补猜。天时地利人和、北约、防空反导零值、高级非核潜艇及历史航母标记，在各数据页面显示释义和原码。两列“铝”名称不变，不增加朝鲜实体警告。

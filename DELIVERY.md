@@ -1,4 +1,12 @@
-# 本轮改版交付状态（2026-09-25）
+# 最新交付状态（2026-10-01）
+
+英文版已上线：[直接打开英文网站](https://lawrence35952563.github.io/National-Power/?lang=en)。页头可切换 English / 中文，保留当前页面和筛选；英文覆盖排名、实体、比较、完整数据、指标、研究说明和下载。两种语言共用同一份数据，Excel、数值和研究规则未改。
+
+74 项本地自动测试通过，桌面及 390px 手机视口已实际操作验收。功能提交 [ddb73fa](https://github.com/Lawrence35952563/National-Power/commit/ddb73fa21023adb4be5c5cf3c9a37fc53009fce2) 的 [Actions](https://github.com/Lawrence35952563/National-Power/actions/runs/36814956325) 构建部署成功，正式网站的语言切换、搜索返回、比较分享和下载均已复验。详情及未测范围见[英文版验收](docs/qa/english-release-2026-10-01.md)。
+
+日常数字更新仍只需替换 `data/source/national-power.xlsx`，在 Excel 重算保存后提交 main，由原工作流自动检查并更新两个语言版本。下载工作簿和 CSV 保留原始标签。
+
+## 历史改版交付状态（2026-09-25）
 
 已从最新 main 增量合并交接成果，完成桌面及 390/360 像素真实浏览器验收，并修复首页搜索回填和 CSS 注释问题。56 项本地及 Actions 测试通过，已部署并实际验证 [网站](https://lawrence35952563.github.io/National-Power/)。交接时的 GitHub 集成 403 为此前环境记录，本次既有 GitHub CLI 认证可正常提交。
 
