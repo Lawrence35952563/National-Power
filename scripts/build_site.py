@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def version_asset_links(html, asset_directory):
     """Version local application assets by bytes, preserving Pages-relative URLs."""
-    pattern = re.compile(r'''\b(?P<attribute>href|src)\s*=\s*(?P<quote>["'])(?P<asset>\./(?:styles\.css|app\.js|reading-guide\.js))(?P=quote)''')
+    pattern = re.compile(r'''\b(?P<attribute>href|src)\s*=\s*(?P<quote>["'])(?P<asset>\./(?:styles\.css|app\.js|reading-guide\.js|i18n\.js|translations\.js))(?P=quote)''')
     versions = {}
 
     def replace(match):
@@ -42,6 +42,16 @@ def main():
             shutil.copytree(source, output / source.name, dirs_exist_ok=True)
         else:
             shutil.copy2(source, output / source.name)
+    # Human-reviewed display translations. There is still only one research dataset.
+    translations = {}
+    for catalog in sorted((ROOT / 'web/locales').glob('en-*.json')):
+        entries = json.loads(catalog.read_text(encoding='utf-8'))
+        if not isinstance(entries, dict) or any(not isinstance(key, str) or not isinstance(value, str) or not value.strip() for key, value in entries.items()):
+            raise ValueError(f'Invalid English display catalog: {catalog.name}')
+        translations.update(entries)
+    if not translations:
+        raise ValueError('English display catalogs are missing')
+    (output / 'translations.js').write_text('window.NP_EN=' + json.dumps(translations, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c') + ';\n', encoding='utf-8')
     # A single-file preview uses the hosted app's code/data and embeds downloads.
     html = (output / 'index.html').read_text(encoding='utf-8')
     # Keep the original markup for offline embedding and direct source previews.
@@ -88,10 +98,10 @@ document.addEventListener('click', function(event) {
 }, true);
 '''
         html = html.replace('<link rel="stylesheet" href="./styles.css">', '<style>' + css.replace('</style', '<\\/style') + '</style>')
-        guide_tag = '<script src="./reading-guide.js"></script>'
-        if guide_tag in html:
-            guide = (output / 'reading-guide.js').read_text(encoding='utf-8')
-            html = html.replace(guide_tag, '<script>' + guide.replace('</script', '<\\/script') + '</script>')
+        for script_name in ('translations.js', 'i18n.js', 'reading-guide.js'):
+            script_tag = f'<script src="./{script_name}"></script>'
+            script = (output / script_name).read_text(encoding='utf-8')
+            html = html.replace(script_tag, '<script>' + script.replace('</script', '<\\/script') + '</script>')
         icon = base64.b64encode((output / 'favicon.svg').read_bytes()).decode('ascii')
         html = html.replace('href="./favicon.svg"', 'href="data:image/svg+xml;base64,' + icon + '"')
         html = re.sub(r'<script type="module" src="\./app\.js"></script>', lambda _: '<script>window.NATIONAL_POWER_DATA=' + embedded + ';window.NATIONAL_POWER_DOWNLOADS=' + embedded_downloads + ';' + download_script + '</script><script type="module">' + js.replace('</script', '<\\/script') + '</script>', html)

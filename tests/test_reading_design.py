@@ -46,14 +46,14 @@ class ApplicationAssetLinks(HTMLParser):
             if name not in {"href", "src"} or not value:
                 continue
             filename = Path(urlsplit(value).path).name
-            if filename in {"styles.css", "app.js", "reading-guide.js"}:
+            if filename in {"styles.css", "app.js", "reading-guide.js", "i18n.js", "translations.js"}:
                 self.links[filename] = value
 
 
 class HostedAssetVersions(unittest.TestCase):
     def test_asset_urls_track_only_their_own_bytes_and_keep_relative_paths(self):
         version_asset_links = runpy.run_path(str(ROOT / "scripts/build_site.py"))["version_asset_links"]
-        names = {"styles.css", "app.js", "reading-guide.js"}
+        names = {"styles.css", "app.js", "reading-guide.js", "i18n.js", "translations.js"}
 
         def links(html):
             parser = ApplicationAssetLinks()
@@ -70,11 +70,12 @@ class HostedAssetVersions(unittest.TestCase):
 
         original_html = (ROOT / "web/index.html").read_text(encoding="utf-8")
         self.assertTrue(all(not urlsplit(href).query for href in links(original_html).values()),
-                        "Source markup must remain usable without a build")
+                        "Source markup uses unversioned names; build versions every runtime asset")
         with tempfile.TemporaryDirectory(prefix="national-power-assets-") as temporary:
             directory = Path(temporary)
             for name in names:
-                (directory / name).write_bytes((ROOT / "web" / name).read_bytes())
+                source = DIST / name if name == "translations.js" else ROOT / "web" / name
+                (directory / name).write_bytes(source.read_bytes())
             baseline_html = version_asset_links(original_html, directory)
             baseline = links(baseline_html)
             self.assertEqual(version_asset_links(original_html, directory), baseline_html,

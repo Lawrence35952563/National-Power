@@ -1,8 +1,8 @@
 # 国家长期能力综合排名
 
-[打开网站](https://lawrence35952563.github.io/National-Power/) · [使用与更新说明](docs/user-guide.md)
+[中文版](https://lawrence35952563.github.io/National-Power/?lang=zh) · [English](https://lawrence35952563.github.io/National-Power/?lang=en) · [使用与更新说明](docs/user-guide.md)
 
-2026-09-25 改版已部署并实际验收，56 项本地及 CI 测试通过：[发布运行](https://github.com/Lawrence35952563/National-Power/actions/runs/36107219970) · [浏览器验收与已知限制](docs/qa/editorial-refresh-2026-09-25.md)。
+2026-10-01 加入英文版与页头语言切换，两种语言共用同一份数据和功能。本轮 74 项本地测试通过：[英文版验收](docs/qa/english-release-2026-10-01.md) · [实际发布状态](docs/deployment-status.md)。
 
 本项目比较国家及其他评价实体调动资源、维持长期行动的能力，包含政治、经济、军事、交通、农业、能源、矿产和稳定八个领域。综合名次与领域结果以 Excel 为准，研究说明整理自《综合国力2.0》PDF。
 
@@ -57,6 +57,14 @@
 | `docs/` | 使用、方法、维护及验收记录 |
 
 `dist/` 是自动生成的网站，不提交到仓库，不需要手工维护。
+
+## 中英文展示
+
+页头的 **English / 中文** 切换当前页面，保留筛选、比较选择和浏览状态。链接中的 `?lang=en` 或 `?lang=zh` 明确指定语言；没有指定时使用浏览器中上次的选择，首次默认为中文。英文搜索同时支持现有中文名称。
+
+英文文案位于 `web/locales/en-*.json`，由构建生成 `translations.js`。`web/i18n.js` 只处理显示文字及可访问性标签，不改控件值、字段 ID、工作簿数据或公式。更新数字仍只替换 Excel，不需改译文。增加或更名字段、修改研究含义时，应同步核对对应英文文案。
+
+Excel、CSV 下载及高级溯源的原始记录保留原文。单文件离线版同时包含两种语言，不依赖在线翻译服务。
 
 ## 给维护者
 

@@ -646,3 +646,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 /* Confirmed code meanings remain readable next to the original record. */
 .coded-value{display:inline-block;max-width:170px;white-space:normal;line-height:1.6;font:inherit;text-align:inherit}.coded-value small{display:block;font:12px/1.6 var(--sans);color:var(--muted)}
 .composite-readout .coded-value{font-size:16px}
+
+/* Language controls share the existing layout; data tables keep their own scroll. */
+.language-switch{order:3;flex:none;min-height:42px}
+#navigation{order:2}
+html[lang=en] .entity-en{display:none}
+html[lang=en] .button{white-space:normal;text-align:center}
+html[lang=en] .coded-value{max-width:180px;text-align:inherit}
+html[lang=en] .entity-record-label a,html[lang=en] .entity-domain-question{overflow-wrap:break-word}
+@media(max-width:1120px){html[lang=en] .header-inner{flex-wrap:wrap;padding-top:14px}html[lang=en] #navigation{order:4;width:100%;justify-content:space-between}html[lang=en] .language-switch{margin-left:auto}}
+@media(max-width:960px){.language-switch{order:2;margin-left:auto}#navigation{order:4}}
+@media(max-width:680px){html[lang=en] #navigation a{white-space:normal;line-height:1.35}html[lang=en] .brand-title{font-size:15px}html[lang=en] .entity-hero-compact{grid-template-columns:minmax(0,1fr)}html[lang=en] .entity-overall-rank{text-align:left}html[lang=en] .compare-matrix th.freeze{max-width:145px;white-space:normal}html[lang=en] .compare-matrix thead th:not(.freeze){white-space:normal;min-width:125px}html[lang=en] .entity-jumpbar{flex-wrap:wrap}}
